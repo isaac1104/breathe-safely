@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Typography } from 'antd';
 import SearchInput from '../SearchInput/SearchInput';
 import styles from './Home.module.css';
+
+const { Title } = Typography;
 
 class Home extends Component {
   render() {
@@ -9,7 +12,10 @@ class Home extends Component {
 
     return (
       <div className={styles.HomeContainer}>
-        <SearchInput />
+        <div>
+          <Title><span role='img' aria-label='emoji-leaf'>🍃</span> Breathe Safely</Title>
+          <SearchInput />
+        </div>
       </div>
     );
   }
