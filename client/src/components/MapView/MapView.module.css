@@ -4,3 +4,9 @@
   align-items: center;
   height: 100vh;
 }
+
+.SearchInput {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
