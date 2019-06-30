@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchAirQualityData } from '../../actions';
+import SearchInput from '../SearchInput/SearchInput';
 import styles from './Home.module.css';
 
 class Home extends Component {
   componentDidMount() {
-    this.props.fetchAirQualityData();
+    // this.props.fetchAirQualityData();
   }
 
   render() {
@@ -13,7 +14,7 @@ class Home extends Component {
 
     return (
       <div className={styles.HomeContainer}>
-        <h1>Home Route</h1>
+        <SearchInput />
       </div>
     );
   }
