@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchAirQualityData } from '../../actions';
 import styles from './Home.module.css';
 
-const Home = () => (
-  <div className={styles.HomeContainer}>
-    <h1>Home Route</h1>
-  </div>
-);
+class Home extends Component {
+  componentDidMount() {
+    this.props.fetchAirQualityData();
+  }
 
-export default Home;
+  render() {
+    console.log(this.props.air_data);
+
+    return (
+      <div className={styles.HomeContainer}>
+        <h1>Home Route</h1>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = ({ air_data }) => {
+  return {
+    air_data
+  };
+};
+
+export default connect(mapStateToProps, { fetchAirQualityData })(Home);
