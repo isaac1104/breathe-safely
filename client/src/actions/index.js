@@ -13,10 +13,14 @@ const fetchDataFail = ({ type, payload }) => ({
   type, payload
 });
 
-export const fetchAirQualityData = () => async dispatch => {
+export const fetchAirQualityData = location => async dispatch => {
   dispatch(fetchDataRequest({ type: FETCH_AIR_QUALITY_DATA_REQUEST, payload: true }));
   try {
-    const request = await axios.get('/api/data');
+    const request = await axios.get('/api/data', {
+      params: {
+        location
+      }
+    });
     const { data } = request;
     dispatch(fetchDataSuccess({ type: FETCH_AIR_QUALITY_DATA_SUCCESS, payload: data }));
   } catch (error) {
