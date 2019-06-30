@@ -18,7 +18,7 @@ class SearchInput extends Component {
       <Search
         {...input}
         autoComplete='off'
-        placeholder='Enter A Location'
+        placeholder='Enter A City Name'
         onFocus={event => event.target.select()}
       />
     );
