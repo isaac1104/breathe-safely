@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(helmet());
 
-require('./routes/test_route')(app);
+require('./routes/air_data_route')(app);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
