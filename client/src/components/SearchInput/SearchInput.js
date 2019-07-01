@@ -10,7 +10,7 @@ const { Search } = Input;
 
 class SearchInput extends Component {
   formSubmit = ({ location }) => {
-    this.props.fetchAirQualityData(location);
+    this.props.fetchAirQualityData(location.trim());
   }
 
   renderInput = ({ input }) => {
