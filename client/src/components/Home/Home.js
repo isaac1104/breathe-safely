@@ -63,7 +63,7 @@ class Home extends Component {
     if (data.city) {
       return (
         <Card title={`Air Quality In ${data.city.name}`}>
-          <Typography>Measured On: {data.time ? data.time.s : 'N/A'}</Typography>
+          <Typography>Last Updated: {data.time ? data.time.s : 'N/A'}</Typography>
           <div className={styles.PMLevelContainer}>
             <Typography>PM 2.5 Level: </Typography>
             <Typography className={styles.PMLevelValue}>{data.iaqi.pm25 ? data.iaqi.pm25.v : 'N/A'}</Typography>
