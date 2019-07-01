@@ -1,12 +1,33 @@
 .MapViewContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
 }
 
-.SearchInput {
+.MapContainer {
+  width: 100%;
+  height: 100vh;
+}
+
+.SearchInputContainer {
   position: absolute;
   top: 1em;
   left: 1em;
+  z-index: 1000;
+}
+
+.NotFoundContainer {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.NotFoundSearchInputContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.NotFoundText {
+  color: red !important;
 }

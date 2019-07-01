@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Map from 'pigeon-maps';
+import { Icon, Typography } from 'antd';
 import { fetchAirQualityData } from '../../actions';
 import SearchInput from '../SearchInput/SearchInput';
 import Spinner from '../Spinner/Spinner';
 import styles from './MapView.module.css';
+
+const { Title } = Typography;
 
 class MapView extends Component {
   componentDidMount() {
@@ -17,18 +21,41 @@ class MapView extends Component {
   }
 
   renderMap() {
-    const { is_fetching } = this.props.air_data;
+    const { is_fetching, data } = this.props.air_data;
     if (is_fetching) {
       return <Spinner />;
     }
-    return (
-      <div>
-        <div className={styles.SearchInput}>
-          <SearchInput />
-        </div>
-        <h1>Display data for {this.props.match.params.city}</h1>
-      </div>
-    );
+
+    if (data) {
+      if (data.city) {
+        return (
+          <div className={styles.MapContainer}>
+            <div className={styles.SearchInputContainer}>
+              <SearchInput />
+            </div>
+            <Map center={data.city.geo} zoom={12} />
+          </div>
+        );
+      } else {
+        return (
+          <div className={styles.NotFoundContainer}>
+            <div>
+              <Title
+                level={3}
+                className={styles.NotFoundText}
+              >
+                <Icon type='warning' /> Unknown station. Please search for another city.
+              </Title>
+              <div className={styles.NotFoundSearchInputContainer}>
+                <SearchInput />
+              </div>
+            </div>
+          </div>
+        );
+      }
+    }
+
+    return null;
   }
 
   render() {
