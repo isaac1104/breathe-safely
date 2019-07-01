@@ -10,6 +10,12 @@ class MapView extends Component {
     this.props.fetchAirQualityData(this.props.match.params.city);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.city !== prevProps.match.params.city) {
+      this.props.fetchAirQualityData(this.props.match.params.city);
+    }
+  }
+
   renderMap() {
     const { is_fetching } = this.props.air_data;
     if (is_fetching) {
