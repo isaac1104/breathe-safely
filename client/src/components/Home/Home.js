@@ -8,12 +8,12 @@ import styles from './Home.module.css';
 const { Title } = Typography;
 
 const AQIndex = [
-  { color: '#009966', description: '0-50: Good' },
-  { color: '#ffdd33', description: '51-100: Moderate' },
-  { color: '#ff9833', description: '101-150: Unhealthy for Sensitive Groups' },
-  { color: '#cc0033', description: '151-200: Unhealthy' },
-  { color: '#660099', description: '201-300: Very Unhealthy' },
-  { color: '#7d0023', description: '300+: Hazardous' },
+  { color: '#009966', description: '0-50 Good' },
+  { color: '#ffdd33', description: '51-100 Moderate' },
+  { color: '#ff9833', description: '101-150 Unhealthy for Sensitive Groups' },
+  { color: '#cc0033', description: '151-200 Unhealthy' },
+  { color: '#660099', description: '201-300 Very Unhealthy' },
+  { color: '#7d0023', description: '300+ Hazardous' },
 ];
 
 class Home extends Component {
@@ -66,11 +66,11 @@ class Home extends Component {
           <Typography>Measured On: {data.time.s}</Typography>
           <div className={styles.PMLevelContainer}>
             <Typography>PM 2.5 Level: </Typography>
-            <Typography className={styles.PMLevelValue}>{data.iaqi.pm25.v}</Typography>
+            <Typography className={styles.PMLevelValue}>{data.iaqi.pm25 ? data.iaqi.pm25.v : 'N/A'}</Typography>
           </div>
           <div className={styles.PMLevelContainer}>
             <Typography>PM 1.0 Level: </Typography>
-            <Typography className={styles.PMLevelValue}>{data.iaqi.pm10.v}</Typography>
+            <Typography className={styles.PMLevelValue}>{data.iaqi.pm10 ? data.iaqi.pm10.v : 'N/A'}</Typography>
           </div>
           <Divider />
           {this.renderAirQulityIndex(AQIndex)}
