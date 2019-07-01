@@ -32,8 +32,8 @@ class Home extends Component {
     );
   }
 
-  renderAirQulityIndex(index) {
-    return index.map(({ color, description }) => (
+  renderAirQulityIndex(array) {
+    return array.map(({ color, description }) => (
       <AirQualityIndex
         key={color}
         color={color}
@@ -54,7 +54,7 @@ class Home extends Component {
       color = '#cc0033';
     } else if (value < 301) {
       color = '#660099';
-    } else if (value > 301) {
+    } else if (value => 301) {
       color = '#7d0023';
     } else {
       color = '#000000';
