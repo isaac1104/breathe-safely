@@ -60,31 +60,27 @@ class Home extends Component {
         </div>
       );
     }
-    if (data) {
-      if (data.city) {
-        return (
-          <Card title={`Air Quality In ${data.city.name}`}>
-            <Typography>Measured On: {data.time.s}</Typography>
-            <div className={styles.PMLevelContainer}>
-              <Typography>PM 2.5 Level: </Typography>
-              <Typography className={styles.PMLevelValue}>{data.iaqi.pm25.v}</Typography>
-            </div>
-            <div className={styles.PMLevelContainer}>
-              <Typography>PM 1.0 Level: </Typography>
-              <Typography className={styles.PMLevelValue}>{data.iaqi.pm10.v}</Typography>
-            </div>
-            <Divider />
-            {this.renderAirQulityIndex(AQIndex)}
-          </Card>
-        );
-      }
+    if (data.city) {
+      return (
+        <Card title={`Air Quality In ${data.city.name}`}>
+          <Typography>Measured On: {data.time.s}</Typography>
+          <div className={styles.PMLevelContainer}>
+            <Typography>PM 2.5 Level: </Typography>
+            <Typography className={styles.PMLevelValue}>{data.iaqi.pm25.v}</Typography>
+          </div>
+          <div className={styles.PMLevelContainer}>
+            <Typography>PM 1.0 Level: </Typography>
+            <Typography className={styles.PMLevelValue}>{data.iaqi.pm10.v}</Typography>
+          </div>
+          <Divider />
+          {this.renderAirQulityIndex(AQIndex)}
+        </Card>
+      );
     }
     return null;
   }
 
   render() {
-    console.log(this.props.air_data.data);
-
     return (
       <div className={styles.HomeContainer}>
         <div>
