@@ -42,6 +42,32 @@ class Home extends Component {
     ));
   }
 
+  handleAirQualityValueColor(value) {
+    let color;
+    if (value < 51) {
+      color = '#009966';
+    } else if (value < 101) {
+      color = '#ffdd33';
+    } else if (value < 151) {
+      color = '#ff9833';
+    } else if (value < 201) {
+      color = '#cc0033';
+    } else if (value < 301) {
+      color = '#660099';
+    } else if (value > 301) {
+      color = '#7d0023';
+    } else {
+      color = '#000000';
+    }
+    return (
+      <Typography
+        style={{ color }}
+      >
+        {value}
+      </Typography>
+    );
+  }
+
   renderAirQualityData() {
     const { is_fetching, data } = this.props.air_data;
     if (is_fetching) {
@@ -66,11 +92,11 @@ class Home extends Component {
           <Typography>Last Updated: {data.time ? data.time.s : 'N/A'}</Typography>
           <div className={styles.PMLevelContainer}>
             <Typography>PM 2.5 Level: </Typography>
-            <Typography className={styles.PMLevelValue}>{data.iaqi.pm25 ? data.iaqi.pm25.v : 'N/A'}</Typography>
+            <Typography className={styles.PMLevelValue}>{data.iaqi.pm25 ? this.handleAirQualityValueColor(data.iaqi.pm25.v) : 'N/A'}</Typography>
           </div>
           <div className={styles.PMLevelContainer}>
             <Typography>PM 1.0 Level: </Typography>
-            <Typography className={styles.PMLevelValue}>{data.iaqi.pm10 ? data.iaqi.pm10.v : 'N/A'}</Typography>
+            <Typography className={styles.PMLevelValue}>{data.iaqi.pm10 ? this.handleAirQualityValueColor(data.iaqi.pm10.v) : 'N/A'}</Typography>
           </div>
           <Divider />
           {this.renderAirQulityIndex(AQIndex)}
