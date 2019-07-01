@@ -109,7 +109,7 @@ class Home extends Component {
   render() {
     return (
       <div className={styles.HomeContainer}>
-        <div>
+        <div className={styles.AirQualityDataCardContainer}>
           {this.renderSearchInput()}
           {this.renderAirQualityData()}
         </div>
