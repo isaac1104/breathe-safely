@@ -2,10 +2,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
-  width: 100%;
-}
-
-.SpinnerIcon {
-  font-size: 2em;
+  height: 100vh;
 }

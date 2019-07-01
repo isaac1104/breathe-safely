@@ -1,17 +1,11 @@
 import React from 'react';
 import { Icon, Spin } from 'antd';
-import classes from './Spinner.module.css';
+import styles from './Spinner.module.css';
 
 const Spinner = () => {
   return (
-    <div className={classes.SpinnerContainer}>
-      <Spin indicator={
-        <Icon
-          type='loading'
-          className={classes.SpinnerIcon}
-        />
-      }
-      />
+    <div className={styles.SpinnerContainer}>
+      <Spin indicator={<Icon type='loading' />} />
     </div>
   );
 }

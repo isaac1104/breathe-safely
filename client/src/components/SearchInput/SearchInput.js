@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { Input } from 'antd';
+import { fetchAirQualityData } from '../../actions';
 
 const { Search } = Input;
 
 class SearchInput extends Component {
   formSubmit = ({ location }) => {
-    this.props.history.push(`/city/${location}`);
+    this.props.fetchAirQualityData(location);
   }
 
   renderInput = ({ input }) => {
@@ -43,4 +45,4 @@ function validate(value) {
   return errors;
 };
 
-export default compose(withRouter, reduxForm({ validate, form: 'location' }))(SearchInput);
+export default compose(withRouter, connect(null, { fetchAirQualityData }), reduxForm({ validate, form: 'location' }))(SearchInput);

@@ -5,6 +5,37 @@
   height: 100vh;
 }
 
-.SpinnerIcon {
-  font-size: 2em;
+.SpinnerContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.SearchInput {
+  margin-bottom: 1em;
+}
+
+.NotFoundContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.NotFoundSearchInputContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.NotFoundText {
+  color: red !important;
+}
+
+.PMLevelContainer {
+  display: flex;
+  align-items: center;
+}
+
+.PMLevelValue {
+  margin-left: 0.5em;
 }
