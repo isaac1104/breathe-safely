@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { Input } from 'antd';
 import { fetchAirQualityData } from '../../actions';
@@ -45,4 +44,4 @@ function validate(value) {
   return errors;
 };
 
-export default compose(withRouter, connect(null, { fetchAirQualityData }), reduxForm({ validate, form: 'location' }))(SearchInput);
+export default compose(connect(null, { fetchAirQualityData }), reduxForm({ validate, form: 'location' }))(SearchInput);

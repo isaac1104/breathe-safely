@@ -1,5 +1,4 @@
 import React, { Component, Suspense, lazy } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Spinner from './Spinner/Spinner';
 
 const Home = lazy(() => import('./Home/Home'));
@@ -7,13 +6,9 @@ const Home = lazy(() => import('./Home/Home'));
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
-        <Suspense fallback={<Spinner />}>
-          <Switch>
-            <Route exact path='/' component={Home} />
-          </Switch>
-        </Suspense>
-      </BrowserRouter>
+      <Suspense fallback={<Spinner />}>
+        <Home />
+      </Suspense>
     );
   }
 }
