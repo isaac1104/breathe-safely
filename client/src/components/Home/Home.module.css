@@ -43,3 +43,7 @@
 .AirQualityDataCardContainer {
   width: 25em;
 }
+
+.AppTitle {
+  color: white !important;
+}

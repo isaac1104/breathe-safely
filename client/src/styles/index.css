@@ -4,4 +4,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
+  background: #50C9C3;
+  background: -webkit-linear-gradient(to right, #96DEDA, #50C9C3);
+  background: linear-gradient(to right, #96DEDA, #50C9C3);
 }

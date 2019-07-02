@@ -24,7 +24,7 @@ class Home extends Component {
     }
     return (
       <>
-        <Title><span role='img' aria-label='emoji-leaf'>🍃</span> Breathe Safely</Title>
+        <Title className={styles.AppTitle}><span role='img' aria-label='emoji-leaf'>🍃</span> Breathe Safely</Title>
         <div className={styles.SearchInput}>
           <SearchInput />
         </div>
