@@ -107,7 +107,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.props.air_data.data);
     return (
       <div className={styles.HomeContainer}>
         <div className={styles.AirQualityDataCardContainer}>
